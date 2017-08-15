@@ -32,9 +32,9 @@ void display_usage()
             "You can install and run module easily from configuration file," n
             "to determine how packets are encrypted, transmitted, etc." n n
             "Options:" n
-            "-c <config file path>\tPath to config file(default: /etc/snakesocks/conf/client.conf)" n
+            "-c <config file path>\tPath to config file(default: conf\\\\client.conf)" n
             "-h\tShow this message" n
-            "You can not run client as daemon on windows. You can launch it as service by yourself." n n
+            "You can not run client as daemon on windows. Try launch it as service by yourself if necessary." n n
             "Published on GNU license V2." n
     );
 #undef n
@@ -80,7 +80,7 @@ int main(int arglen, char **argv)
         }
 
     config conf;
-    conf.load(confPath == NULL ? "/etc/snakesocks/conf/client.conf" : confPath);
+    conf.load(confPath == NULL ? "conf\\client.conf" : confPath);
     if(daemonLogFilePath != NULL) conf.daemonLogFile = daemonLogFilePath;
 
     if(dflag)

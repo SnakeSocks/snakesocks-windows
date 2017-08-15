@@ -1,6 +1,7 @@
 #ifndef SNAKESOCKSCLI_FIX_CONFIG_HPP
 #define SNAKESOCKSCLI_FIX_CONFIG_HPP
 
+#include <boost/asio.hpp>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/ini_parser.hpp>
 #include <string>

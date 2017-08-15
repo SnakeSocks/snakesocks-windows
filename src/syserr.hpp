@@ -13,7 +13,7 @@
 using std::printf;
 
 #define _do_sys_except(msg, ...) do{ \
-                            ::std::string errmsg = fstr("sys error at %s:%d | errno=%d:%s | WSAError=%d >", __FILE__, __LINE__, errno, strerror(errno), WSAGetLastError()); \
+                            ::std::string errmsg = fstr("sys error at %s:%d | errno=%d:%s | WSAError=%d, WINAPILastError=%d >", __FILE__, __LINE__, errno, strerror(errno), WSAGetLastError(), GetLastError()); \
                             errmsg += fstr(msg, ##__VA_ARGS__); \
                             errmsg += "\n"; \
                             throw std::runtime_error(errmsg); \
@@ -21,7 +21,7 @@ using std::printf;
 #define sysdie(msg, ...) _do_sys_except(msg, ##__VA_ARGS__)
 
 #define _do_except(msg, ...) do{ \
-                            ::std::string errmsg = fstr("logic error at %s:%d | errno=%d:%s(usually not help) | WSAError=%d >", __FILE__, __LINE__, errno, strerror(errno), WSAGetLastError()); \
+                            ::std::string errmsg = fstr("logic error at %s:%d | errno=%d:%s(usually not help) | WSAError=%d, WINAPILastError=%d >", __FILE__, __LINE__, errno, strerror(errno), WSAGetLastError(), GetLastError()); \
                             errmsg += fstr(msg, ##__VA_ARGS__); \
                             errmsg += "\n"; \
                             throw std::runtime_error(errmsg); \

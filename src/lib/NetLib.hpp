@@ -2,6 +2,7 @@
 #define GTKFILESHARE_NETLIB_HPP
 
 #include <string>
+#include <boost/asio.hpp>
 using std::string;
 
 class [[deprecated]] NetLib {
