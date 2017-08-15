@@ -1,0 +1,1 @@
+cmake -G "MSYS Makefiles" -D CMAKE_C_COMPILER=C:\\\\MinGW\\\\bin\\\\fake_gcc.sh -D CMAKE_CXX_COMPILER=C:\\\\MinGW\\\\bin\\\\fake_g++.sh .
