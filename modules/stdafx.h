@@ -10,6 +10,11 @@
 extern "C" {
 #endif
 
+#ifdef BUILDING_WIN32_DLL
+#define WIN32_DLL_PREFIX __stdcall __declspec(dllexport)
+#else
+#define WIN32_DLL_PREFIX
+#endif
 
 // Common definition
 #include <stdbool.h>

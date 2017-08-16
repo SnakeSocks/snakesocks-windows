@@ -131,6 +131,7 @@ void client_module::loadSo(const string &filePath)
 void client_module::loadSo(const string &filePath)
 {
     using namespace ____trick;
+	debug(1) printf("dlopen('%s')", filePath.c_str());
     void *handle = dlopen(filePath.c_str(), RTLD_LAZY);
     char *errstr = NULL;
     if(!handle) sysdie("dlopen failed to open shared object %s, dlerror=%s", filePath.c_str(), dlerror());

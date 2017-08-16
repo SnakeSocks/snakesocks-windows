@@ -33,6 +33,7 @@ fd tunnel::newConnection()
     bool success = false;
     for (addrinfo *rp = paddr; rp != NULL; rp = rp->ai_next) {
         sockfd = socket(rp->ai_family, rp->ai_socktype, rp->ai_protocol);
+		debug(3) printf("sockfd=%d, lstErr=%d\n", sockfd, WSAGetLastError());
         if (sockfd == INVALID_SOCKET)
             continue;
         int reuse = 1;
@@ -42,7 +43,9 @@ fd tunnel::newConnection()
             success = true;
             break; /* Success */
         }
+		_ = WSAGetLastError(); //If there're some error on connect, preserve WSALastError sothat line50sysdie will print it.
         closesocket(sockfd);
+		WSASetLastError(_);
     }
     if(!success) sysdie("Failed to connect to any of these addr.");
 

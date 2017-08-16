@@ -279,9 +279,11 @@ void *dlopen( const char *file, int mode )
          * LOAD_WITH_ALTERED_SEARCH_PATH is used to make it behave more closely
          * to UNIX's search paths (start with system folders instead of current
          * folder).
+		 *
+		 * R.K. Edited: canceled it. Silly impl.
          */
         hModule = LoadLibraryEx(lpFileName, NULL, 
-                                LOAD_WITH_ALTERED_SEARCH_PATH );
+                                /*LOAD_WITH_ALTERED_SEARCH_PATH*/0 );
 
         /* If the object was loaded with RTLD_GLOBAL, add it to list of global
          * objects, so that its symbols may be retrieved even if the handle for
