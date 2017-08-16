@@ -1,0 +1,43 @@
+﻿<Window x:Class="SnakeSocksClientGUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SnakeSocksClientGUI"
+        mc:Ignorable="d"
+        Title="SnakeSocks GUI for Win32" Height="499.015" Width="867.082" WindowStyle="ThreeDBorderWindow" BorderThickness="0,0,1,1">
+    <Grid>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="300" Margin="20,20,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="on_listbox_select_changed"/>
+        <Button x:Name="btn_rmprof" Content="Delete" HorizontalAlignment="Left" Height="24" Margin="137,333,0,0" VerticalAlignment="Top" Width="83" Click="on_delete_profile" IsEnabled="False"/>
+        <Button x:Name="btn_newprof" Content="New Profile" HorizontalAlignment="Left" Height="24" Margin="20,333,0,0" VerticalAlignment="Top" Width="83" Click="on_new_profile"/>
+        <Button x:Name="btn_dis_proxy" Content="Disable proxy" HorizontalAlignment="Left" Height="24" Margin="137,422,0,0" VerticalAlignment="Top" Width="83" Click="on_disable" IsEnabled="False"/>
+        <Button x:Name="btn_en_proxy" Content="Enable proxy" HorizontalAlignment="Left" Height="24" Margin="20,422,0,0" VerticalAlignment="Top" Width="83" Click="on_enable" IsEnabled="False"/>
+        <CheckBox x:Name="switch_autorun" Content="Run snakesocks on boot" HorizontalAlignment="Left" Height="15" Margin="20,402,0,0" VerticalAlignment="Top" Width="200"/>
+        <CheckBox x:Name="switch_startonrun" Content="Auto-enable this profile" HorizontalAlignment="Left" Height="15" Margin="20,362,0,0" VerticalAlignment="Top" Width="200" IsEnabled="False" Checked="on_elem_input" Unchecked="on_elem_input"/>
+        <TextBlock x:Name="display" HorizontalAlignment="Left" Height="258" Margin="260,188,0,0" TextWrapping="Wrap" Text="skcli.exe stdout/stderr here:" VerticalAlignment="Top" Width="572" FontSize="14" FontFamily="Lucida Console" Padding="2"/>
+        <GroupBox x:Name="group_box_conf" Header="Profile Configure" HorizontalAlignment="Left" Height="142" Margin="260,20,0,0" VerticalAlignment="Top" Width="572">
+            <Grid HorizontalAlignment="Left" Height="116" VerticalAlignment="Top" Width="556">
+                <TextBlock x:Name="textBlock_static" HorizontalAlignment="Left" Height="16" Margin="10,10,0,0" TextWrapping="Wrap" Text="Server Address:" VerticalAlignment="Top" Width="94"/>
+                <TextBox x:Name="tb_servaddr" HorizontalAlignment="Left" Height="16" Margin="109,10,0,0" Text="" VerticalAlignment="Top" Width="146" IsEnabled="False" LostFocus="on_elem_input"/>
+                <TextBlock x:Name="textBlock_static_1" HorizontalAlignment="Left" Height="16" Margin="10,35,0,0" TextWrapping="Wrap" Text="Server Port:" VerticalAlignment="Top" Width="94"/>
+                <TextBox x:Name="tb_servport" HorizontalAlignment="Left" Height="16" Margin="109,35,0,0" Text="" VerticalAlignment="Top" Width="146" IsEnabled="False" LostFocus="on_elem_input"/>
+                <TextBlock x:Name="textBlock_static_Copy" HorizontalAlignment="Left" Height="16" Margin="10,62,0,0" TextWrapping="Wrap" Text="Bind Address:" VerticalAlignment="Top" Width="94"/>
+                <TextBox x:Name="tb_bindaddr" HorizontalAlignment="Left" Height="16" Margin="109,62,0,0" Text="" VerticalAlignment="Top" Width="146" IsEnabled="False" LostFocus="on_elem_input"/>
+                <TextBlock x:Name="textBlock_static_1_Copy" HorizontalAlignment="Left" Height="16" Margin="10,89,0,0" TextWrapping="Wrap" Text="Bind Port:" VerticalAlignment="Top" Width="94"/>
+                <TextBox x:Name="tb_bindport" HorizontalAlignment="Left" Height="16" Margin="109,89,0,0" Text="" VerticalAlignment="Top" Width="146" IsEnabled="False" LostFocus="on_elem_input"/>
+                <TextBlock x:Name="textBlock_static_1_Copy1" HorizontalAlignment="Left" Height="16" Margin="292,10,0,0" TextWrapping="Wrap" Text="Passphrase:" VerticalAlignment="Top" Width="94"/>
+                <TextBox x:Name="tb_passphrase" HorizontalAlignment="Left" Height="16" Margin="391,10,0,0" Text="" VerticalAlignment="Top" Width="146" IsEnabled="False" LostFocus="on_elem_input"/>
+                <TextBlock x:Name="textBlock_static_1_Copy2" HorizontalAlignment="Left" Height="16" Margin="292,35,0,0" TextWrapping="Wrap" Text="Module path:" VerticalAlignment="Top" Width="94"/>
+                <TextBox x:Name="tb_module" HorizontalAlignment="Left" Height="16" Margin="391,35,0,0" Text="" VerticalAlignment="Top" Width="146" IsEnabled="False" LostFocus="on_elem_input"/>
+                <TextBlock x:Name="textBlock_static_1_Copy3" HorizontalAlignment="Left" Height="16" Margin="292,62,0,0" TextWrapping="Wrap" Text="Debug level:" VerticalAlignment="Top" Width="94"/>
+                <TextBox x:Name="tb_debug_level" HorizontalAlignment="Left" Height="16" Margin="391,62,0,0" Text="" VerticalAlignment="Top" Width="146" IsEnabled="False" LostFocus="on_elem_input"/>
+                <TextBlock x:Name="textBlock_static_1_Copy4" HorizontalAlignment="Left" Height="16" Margin="292,89,0,0" TextWrapping="Wrap" Text="Profile Name:" VerticalAlignment="Top" Width="94"/>
+                <TextBox x:Name="tb_prof_name" HorizontalAlignment="Left" Height="16" Margin="391,89,0,0" Text="" VerticalAlignment="Top" Width="146" IsEnabled="False" LostFocus="on_elem_input"/>
+            </Grid>
+        </GroupBox>
+        <TextBlock x:Name="textBlock_static_222" HorizontalAlignment="Left" Height="16" Margin="260,168,0,0" TextWrapping="Wrap" Text="Path to skcli.exe:" VerticalAlignment="Top" Width="105"/>
+        <TextBox x:Name="tb_skcli_path" HorizontalAlignment="Left" Height="17" Margin="365,167,0,0" Text="" VerticalAlignment="Top" Width="431"/>
+        <Button x:Name="btn_skcli_filepicker" Content="..." HorizontalAlignment="Left" Height="17" Margin="796,167,0,0" VerticalAlignment="Top" Width="23" Click="on_filepick_clicked"/>
+
+    </Grid>
+</Window>
