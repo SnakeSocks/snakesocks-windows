@@ -26,13 +26,21 @@ void display_usage()
 {
 #define n "\n"
     printf(
-            "SnakeSocks Client 1.1.3 Windows edition (nogui)" n n
+            "SnakeSocks Client 1.1.4 Windows edition (nogui)" n n
             "Usage: snakesockscli [OPTION...]" n
             "A extensible proxy which supports module-defined protocol behavior." n
             "You can install and run module easily from configuration file," n
             "to determine how packets are encrypted, transmitted, etc." n n
             "Options:" n
-            "-c <config file path>\tPath to config file(default: conf\\\\client.conf)" n
+            "-s <server address>\tServer ip or domain" n
+            "-p <server port>\tServer listening port" n
+            "-k <passphrase>\tPassphrase" n
+            "-L <listen address>\tLocal address that socks5 server listens on" n
+            "-P <listen port>\tLocal port that socks5 server listens on" n
+            "-D <debug level>\tDebug level to set" n
+            "-m <path to module>\tModule path" n
+            n
+            "-c <config file path>\tPath to config file(default: conf\\client.conf)" n
             "-h\tShow this message" n
             "You can not run client as daemon on windows. Try launch it as service by yourself if necessary." n n
             "Published on GNU license V2." n
@@ -45,12 +53,14 @@ int main(int arglen, char **argv)
     int dflag = 0;
     char *confPath = NULL;
     char *daemonLogFilePath = NULL;
+    char *serverAddr = NULL, *serverPort = NULL, *passP = NULL, *listenAddr = NULL, *listenPort = NULL;
+    char *debugLev = NULL, *modPath = NULL;
     int index;
     int c;
 
     opterr = 0;
 
-    while ((c = getopt (arglen, argv, "c:dhl:")) != -1)
+    while ((c = getopt (arglen, argv, "c:dhl:s:p:k:L:P:D:m:")) != -1)
         switch (c)
         {
             case 'd':
@@ -65,6 +75,27 @@ int main(int arglen, char **argv)
                 break;
             case 'l':
                 daemonLogFilePath = optarg;
+                break;
+            case 's':
+                serverAddr = optarg;
+                break;
+            case 'p':
+                serverPort = optarg;
+                break;
+            case 'k':
+                passP = optarg;
+                break;
+            case 'L':
+                listenAddr = optarg;
+                break;
+            case 'P':
+                listenPort = optarg;
+                break;
+            case 'D':
+                debugLev = optarg;
+                break;
+            case 'm':
+                modPath = optarg;
                 break;
             case '?':
                 if (optopt == 'c')
@@ -81,8 +112,15 @@ int main(int arglen, char **argv)
 
     config conf;
     conf.load(confPath == NULL ? "conf\\client.conf" : confPath);
-    if(daemonLogFilePath != NULL) conf.daemonLogFile = daemonLogFilePath;
-
+    if(daemonLogFilePath) conf.daemonLogFile = daemonLogFilePath;
+    if(serverAddr) conf.serverIp = serverAddr;
+    if(serverPort) conf.serverPort = atoi(serverPort);
+    if(passP) conf.passphrase = passP;
+    if(listenAddr) conf.bindIp = listenAddr;
+    if(listenPort) conf.bindPort = atoi(listenPort);
+    if(debugLev) conf.debugLevel = atoi(debugLev);
+    if(modPath) conf.modulePath = modPath;
+	
     if(dflag)
     {
 		die("Daemon mode is not currently supported on WinNT. You can launch it as service by yourself.");/*
