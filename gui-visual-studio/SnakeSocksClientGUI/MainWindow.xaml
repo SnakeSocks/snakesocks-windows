@@ -5,16 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SnakeSocksClientGUI"
         mc:Ignorable="d"
-        Title="SnakeSocks GUI for Win32" Height="499.015" Width="867.082" WindowStyle="ThreeDBorderWindow" BorderThickness="0,0,1,1">
+        Title="SnakeSocks GUI for Win32 v1.1.9" Height="499.015" Width="867.082" WindowStyle="ThreeDBorderWindow" BorderThickness="0,0,1,1">
     <Grid>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="300" Margin="20,20,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="on_listbox_select_changed"/>
         <Button x:Name="btn_rmprof" Content="Delete" HorizontalAlignment="Left" Height="24" Margin="137,333,0,0" VerticalAlignment="Top" Width="83" Click="on_delete_profile" IsEnabled="False"/>
         <Button x:Name="btn_newprof" Content="New Profile" HorizontalAlignment="Left" Height="24" Margin="20,333,0,0" VerticalAlignment="Top" Width="83" Click="on_new_profile"/>
-        <Button x:Name="btn_dis_proxy" Content="Disable proxy" HorizontalAlignment="Left" Height="24" Margin="137,422,0,0" VerticalAlignment="Top" Width="83" Click="on_disable" IsEnabled="False"/>
-        <Button x:Name="btn_en_proxy" Content="Enable proxy" HorizontalAlignment="Left" Height="24" Margin="20,422,0,0" VerticalAlignment="Top" Width="83" Click="on_enable" IsEnabled="False"/>
-        <CheckBox x:Name="switch_autorun" Content="Run snakesocks on boot" HorizontalAlignment="Left" Height="15" Margin="20,402,0,0" VerticalAlignment="Top" Width="200"/>
-        <CheckBox x:Name="switch_startonrun" Content="Auto-enable this profile" HorizontalAlignment="Left" Height="15" Margin="20,362,0,0" VerticalAlignment="Top" Width="200" IsEnabled="False" Checked="on_elem_input" Unchecked="on_elem_input"/>
-        <TextBlock x:Name="display" HorizontalAlignment="Left" Height="258" Margin="260,188,0,0" TextWrapping="Wrap" Text="skcli.exe stdout/stderr here:" VerticalAlignment="Top" Width="572" FontSize="14" FontFamily="Lucida Console" Padding="2"/>
+        <Button x:Name="btn_dis_proxy" Content="Disable proxy" HorizontalAlignment="Left" Height="24" Margin="137,426,0,0" VerticalAlignment="Top" Width="83" Click="on_disable" IsEnabled="False"/>
+        <Button x:Name="btn_en_proxy" Content="Enable proxy" HorizontalAlignment="Left" Height="24" Margin="20,426,0,0" VerticalAlignment="Top" Width="83" Click="on_enable" IsEnabled="False"/>
+        <CheckBox x:Name="switch_autorun" Content="Run snakesocks on boot" HorizontalAlignment="Left" Height="15" Margin="20,406,0,0" VerticalAlignment="Top" Width="200"/>
+        <CheckBox x:Name="switch_startonrun" Content="Auto-enable this profile" HorizontalAlignment="Left" Height="15" Margin="20,362,0,0" VerticalAlignment="Top" Width="200" IsEnabled="False" Checked="on_autoenable_checked" Unchecked="on_elem_input"/>
         <GroupBox x:Name="group_box_conf" Header="Profile Configure" HorizontalAlignment="Left" Height="142" Margin="260,20,0,0" VerticalAlignment="Top" Width="572">
             <Grid HorizontalAlignment="Left" Height="116" VerticalAlignment="Top" Width="556">
                 <TextBlock x:Name="textBlock_static" HorizontalAlignment="Left" Height="16" Margin="10,10,0,0" TextWrapping="Wrap" Text="Server Address:" VerticalAlignment="Top" Width="94"/>
@@ -36,8 +35,12 @@
             </Grid>
         </GroupBox>
         <TextBlock x:Name="textBlock_static_222" HorizontalAlignment="Left" Height="16" Margin="260,168,0,0" TextWrapping="Wrap" Text="Path to skcli.exe:" VerticalAlignment="Top" Width="105"/>
-        <TextBox x:Name="tb_skcli_path" HorizontalAlignment="Left" Height="17" Margin="365,167,0,0" Text="" VerticalAlignment="Top" Width="431"/>
-        <Button x:Name="btn_skcli_filepicker" Content="..." HorizontalAlignment="Left" Height="17" Margin="796,167,0,0" VerticalAlignment="Top" Width="23" Click="on_filepick_clicked"/>
+        <TextBox x:Name="tb_skcli_path" HorizontalAlignment="Left" Height="17" Margin="365,167,0,0" Text="" VerticalAlignment="Top" Width="350"/>
+        <Button x:Name="btn_skcli_filepicker" Content="..." HorizontalAlignment="Left" Height="17" Margin="715,167,0,0" VerticalAlignment="Top" Width="23" Click="on_filepick_clicked"/>
+        <Button x:Name="btn_save_conf" Content="Save your configurations" HorizontalAlignment="Left" Height="25" Margin="20,379,0,0" VerticalAlignment="Top" Width="200" Click="on_btn_save_conf"/>
+        <ScrollViewer x:Name="display" HorizontalAlignment="Left" Height="261" Margin="260,189,0,0" VerticalAlignment="Top" Width="572" FontFamily="Lucida Console" FontSize="13" Content="Output Here:"/>
+        <Button x:Name="btn_display_clear" Content="Clear" HorizontalAlignment="Left" Height="17" Margin="796,167,0,0" VerticalAlignment="Top" Width="36" FontSize="11" Click="on_display_clear"/>
+        <Button x:Name="btn_display_copy" Content="Copy" HorizontalAlignment="Left" Height="17" Margin="760,167,0,0" VerticalAlignment="Top" Width="36" FontSize="11" Click="on_display_copy"/>
 
     </Grid>
 </Window>
