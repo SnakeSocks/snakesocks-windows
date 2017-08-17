@@ -42,7 +42,7 @@ void display_usage()
             n
             "-h\tShow this message" n
             "NEVER launch this program directly!" n n
-            "Published on GNU license V2." n
+            "Published on GNU license V3." n
     );
 #undef n
 }

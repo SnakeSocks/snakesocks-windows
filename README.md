@@ -2,7 +2,11 @@
 
 ## nogui edition
 
-Here is skcli backend for win32. If you're interested to it, follow instructions below. Else, try gui edition in [release](https://example.com).
+Here is skcli backend for win32. If you're interested in it, follow instructions below. Else, try gui edition in [release](https://github.com/SnakeSocks/snakesocks-windows/releases).
+
+### Download from release
+
+Needn't instruction, OK?
 
 ### Build from source
 
@@ -24,7 +28,28 @@ Then enjoy skcli.exe.
 
 ## gui edition
 
-[TODO]
+### Download from release
+
+Needn't instruction, OK?
+
+### Build from source
+
+I build the project under Visual Studio 2017, so you need it with C#&WPF support. You need to compile nogui edition by
+
+```sh
+	cmake -G "MSYS Makefiles" -D CMAKE_BUILD_TYPE=Release -D FOR_GUI=1 . && make
+	mv skcli.exe skcli-gui-backend.exe
+```
+
+OK. Now open `gui-visual-studio/SnakeSocksClientGUI.sln`, then build it in VS, then everything is fine. Enjoy!
+
+### Usage
+
+Select the path of skcli-gui-backend.exe. Fill all configurations. Enable proxy.
+
+Tip: 'Autorun on boot' and 'Autoenable on run' is under building. Sorry and please wait...
+
+I'll save your configurations in `./skgui.xml`.
 
 ## Compile your module for win32
 

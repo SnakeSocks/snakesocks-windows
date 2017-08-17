@@ -43,7 +43,7 @@ void display_usage()
             "-c <config file path>\tPath to config file(default: conf\\client.conf)" n
             "-h\tShow this message" n
             "You can not run client as daemon on windows. Try launch it as service by yourself if necessary." n n
-            "Published on GNU license V2." n
+            "Published on GNU license V3." n
     );
 #undef n
 }
