@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SnakeSocksClientGUI"
         mc:Ignorable="d"
-        Title="SnakeSocks GUI for Win32 v1.1.9" Height="499.015" Width="867.082" WindowStyle="ThreeDBorderWindow" BorderThickness="0,0,1,1">
+        Title="SnakeSocks GUI for Win32 v1.2.0" Height="499.015" Width="867.082" WindowStyle="ThreeDBorderWindow" BorderThickness="0,0,1,1">
     <Grid>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="300" Margin="20,20,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="on_listbox_select_changed"/>
         <Button x:Name="btn_rmprof" Content="Delete" HorizontalAlignment="Left" Height="24" Margin="137,333,0,0" VerticalAlignment="Top" Width="83" Click="on_delete_profile" IsEnabled="False"/>

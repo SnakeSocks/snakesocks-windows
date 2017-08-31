@@ -292,7 +292,7 @@ namespace SnakeSocksClientGUI
         private void worker(object _prof)
         {
             Profile prof = _prof as Profile;
-            string exeArg = "-s " + prof.servAddr + " -p " + prof.servPort + " -k " + prof.passphrase + " -L " + prof.bindAddr + " -P " + prof.bindPort + " -D " + prof.debugLevel + " -m " + prof.modulePath;
+            string exeArg = "-s " + prof.servAddr + " -p " + prof.servPort + " -k " + prof.passphrase + " -L " + prof.bindAddr + " -P " + prof.bindPort + " -D " + prof.debugLevel + " -m " + prof.modulePath + " -c NULL";
             skcli_nogui = new Process
             {
                 StartInfo = new ProcessStartInfo
