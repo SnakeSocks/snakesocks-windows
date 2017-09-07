@@ -4,3 +4,7 @@ CMakeFiles/**
 Makefile
 *.exe
 *.obj
+gui-visual-studio/SnakeSocksClientGUI/bin/**
+gui-visual-studio/SnakeSocksClientGUI/obj/**
+gui-visual-studio/.vs/**
+

@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SnakeSocksClientGUI"
         mc:Ignorable="d"
-        Title="SnakeSocks GUI for Win32 v1.2.0" Height="499.015" Width="867.082" WindowStyle="ThreeDBorderWindow" BorderThickness="0,0,1,1">
+        Title="SnakeSocks GUI for Win32 v1.2" Height="499.015" Width="867.082" WindowStyle="ThreeDBorderWindow" BorderThickness="0,0,1,1" ResizeMode="CanMinimize">
     <Grid>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="300" Margin="20,20,0,0" VerticalAlignment="Top" Width="200" SelectionChanged="on_listbox_select_changed"/>
         <Button x:Name="btn_rmprof" Content="Delete" HorizontalAlignment="Left" Height="24" Margin="137,333,0,0" VerticalAlignment="Top" Width="83" Click="on_delete_profile" IsEnabled="False"/>
         <Button x:Name="btn_newprof" Content="New Profile" HorizontalAlignment="Left" Height="24" Margin="20,333,0,0" VerticalAlignment="Top" Width="83" Click="on_new_profile"/>
         <Button x:Name="btn_dis_proxy" Content="Disable proxy" HorizontalAlignment="Left" Height="24" Margin="137,426,0,0" VerticalAlignment="Top" Width="83" Click="on_disable" IsEnabled="False"/>
         <Button x:Name="btn_en_proxy" Content="Enable proxy" HorizontalAlignment="Left" Height="24" Margin="20,426,0,0" VerticalAlignment="Top" Width="83" Click="on_enable" IsEnabled="False"/>
-        <CheckBox x:Name="switch_autorun" Content="Run snakesocks on boot" HorizontalAlignment="Left" Height="15" Margin="20,406,0,0" VerticalAlignment="Top" Width="200"/>
+        <CheckBox x:Name="switch_autorun" Content="Run snakesocks on boot" HorizontalAlignment="Left" Height="15" Margin="20,406,0,0" VerticalAlignment="Top" Width="200" IsEnabled="False"/>
         <CheckBox x:Name="switch_startonrun" Content="Auto-enable this profile" HorizontalAlignment="Left" Height="15" Margin="20,362,0,0" VerticalAlignment="Top" Width="200" IsEnabled="False" Checked="on_autoenable_checked" Unchecked="on_elem_input"/>
         <GroupBox x:Name="group_box_conf" Header="Profile Configure" HorizontalAlignment="Left" Height="142" Margin="260,20,0,0" VerticalAlignment="Top" Width="572">
             <Grid HorizontalAlignment="Left" Height="116" VerticalAlignment="Top" Width="556">
@@ -41,6 +41,7 @@
         <ScrollViewer x:Name="display" HorizontalAlignment="Left" Height="261" Margin="260,189,0,0" VerticalAlignment="Top" Width="572" FontFamily="Lucida Console" FontSize="13" Content="Output Here:"/>
         <Button x:Name="btn_display_clear" Content="Clear" HorizontalAlignment="Left" Height="17" Margin="796,167,0,0" VerticalAlignment="Top" Width="36" FontSize="11" Click="on_display_clear"/>
         <Button x:Name="btn_display_copy" Content="Copy" HorizontalAlignment="Left" Height="17" Margin="760,167,0,0" VerticalAlignment="Top" Width="36" FontSize="11" Click="on_display_copy"/>
+        <Button x:Name="help_btn" Content="?" HorizontalAlignment="Left" Height="15" Margin="832,6,0,0" VerticalAlignment="Top" Width="18" Click="show_help"/>
 
     </Grid>
 </Window>

@@ -26,7 +26,23 @@ namespace SnakeSocksClientGUI
         public MainWindow()
         {
             InitializeComponent();
-            LoadConfigFile();
+            try
+            {
+                LoadConfigFile();
+            }
+            catch(System.IO.FileNotFoundException e)
+            {
+                // do nothing.
+            }
+            //Deal auto-enable
+            foreach (Profile prof in listBox.Items)
+            {
+                if (prof.autorun)
+                {
+                    listBox.SelectedItem = prof;
+                    on_enable(null, null);
+                }
+            }
         }
         ~ MainWindow()
         {
@@ -292,7 +308,7 @@ namespace SnakeSocksClientGUI
         private void worker(object _prof)
         {
             Profile prof = _prof as Profile;
-            string exeArg = "-s " + prof.servAddr + " -p " + prof.servPort + " -k " + prof.passphrase + " -L " + prof.bindAddr + " -P " + prof.bindPort + " -D " + prof.debugLevel + " -m " + prof.modulePath + " -c NULL";
+            string exeArg = "-s " + prof.servAddr + " -p " + prof.servPort + " -k " + prof.passphrase + " -L " + prof.bindAddr + " -P " + prof.bindPort + " -D " + prof.debugLevel + " -m " + prof.modulePath;
             skcli_nogui = new Process
             {
                 StartInfo = new ProcessStartInfo
@@ -382,6 +398,16 @@ namespace SnakeSocksClientGUI
         private void on_display_clear(object sender, RoutedEventArgs e)
         {
             display.Content = "";
+        }
+
+        private void show_help(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(@"
+SnakeSocks Client GUI for Windows 1.2
+Frontend for skcli.exe
+
+This program will start a socks5 server on BindAddress:BindPort(Usually 127.0.0.1:1080). Usually, you must install some extension onto your browser(e.x. SwitchyOmega for Chrome/ium, FoxyProxy for FireFox, and so on) to proxy your packets, and they will manage your connection better.
+            ");
         }
     }
 }
