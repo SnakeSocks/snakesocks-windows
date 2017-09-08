@@ -31,7 +31,7 @@ Then you'll get skcli.exe.
 
 I build the project under Visual Studio 2017, so you need vs with C#&WPF support. 
 
-Before building nogui-edition, open `gui-visual-studio/SnakeSocksClientGUI.sln`, then build it in VS, then everything is OK. Enjoy!
+After building skcli.exe, build `gui-visual-studio/SnakeSocksClientGUI.sln` in VS, then everything is OK. Enjoy!
 
 ## GUI usage
 
