@@ -360,8 +360,15 @@ namespace SnakeSocksClientGUI
             }
             if (workerThread != null)
             {
-                MessageBox.Show("Snakesocks is already running.");
-                return;
+                if (skcli_nogui.HasExited) //If skcli.exe exited abnormally.
+                {
+                    on_disable(sender, e);
+                }
+                else
+                {
+                    MessageBox.Show("Snakesocks is already running.");
+                    return;
+                }
             }
             string err = validate(prof, tb_skcli_path.Text);
             if (err != "")
@@ -383,7 +390,8 @@ namespace SnakeSocksClientGUI
             }
             if (skcli_nogui != null)
             {
-                skcli_nogui.Kill();
+                if(!skcli_nogui.HasExited)
+                    skcli_nogui.Kill();
                 skcli_nogui = null;
             }
             workerThread = null;
